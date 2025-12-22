@@ -1,7 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Banana Fortune</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-<div class="container">
-  <img src="image/banana_next.png" id="banana">
-</div>
+  <div class="wrapper">
+    <div class="stage">
+      <img id="banana" src="image/banana_next.png" />
+    </div>
+  </div>
+
+  <script>
+    const clickSound = new Audio("sound/click.mp3");
+    const banana = document.getElementById("banana");
+
+    banana.addEventListener("click", () => {
+      clickSound.play();
+      setTimeout(() => {
+        window.location.href = "page2.html";
+      }, 300);
+    });
+  </script>
 
 </body>
+</html>
