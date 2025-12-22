@@ -19,12 +19,13 @@ html, body {
 }
 #banana {
   position: absolute;
-  top: 6%;              /* 필요 시 숫자만 조절 */
+  top: 6%;
   left: 50%;
   transform: translateX(-50%);
-  width: 22%;
+  width: 20%;
   cursor: pointer;
 }
+
 .stage {
   height: 100%;
   aspect-ratio: 9 / 16; /* 배경 이미지 비율 */
