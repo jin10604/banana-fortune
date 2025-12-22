@@ -24,6 +24,7 @@ html, body {
   transform: translateX(-50%);
   width: 20%;
   cursor: pointer;
+   border: 5px solid blue;
 }
 
 .stage {
