@@ -23,7 +23,7 @@ html, body {
   top: 5%;              /* 필요 시 숫자만 조절 */
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
+  width: 25%;
   cursor: pointer;
 }
 
