@@ -21,10 +21,10 @@ html, body {
 }
 #banana {
   position: absolute;
-  top: 5%;              /* 필요 시 숫자만 조절 */
-  left: 50%;
+  top: 6%;              /* 필요 시 숫자만 조절 */
+  left: 48%;
   transform: translateX(-50%);
-  width: 25%;
+  width: 22%;
   cursor: pointer;
 }
 
