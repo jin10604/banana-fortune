@@ -20,7 +20,7 @@ html, body {
 #banana {
   position: absolute;
   top: 6%;
-  left: 50%;
+  left: 30%;
   transform: translateX(-50%);
   width: 20%;
   cursor: pointer;
