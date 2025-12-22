@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>바나나 운세</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 클릭 효과음 -->
+  <audio id="clickSound" src="sound/click.mp3"></audio>
+
+  <!-- 배경 음악 -->
+  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
+
+  <!-- 바나나 클릭 영역 (투명 버튼) -->
+  <button id="bananaButton"></button>
+
+</div>
+
+<script>
+  const button = document.getElementById("bananaButton");
+  const clickSound = document.getElementById("clickSound");
+  const bgm = document.getElementById("bgm");
+
+  button.addEventListener("click", () => {
+    clickSound.play();
+    bgm.play(); // 첫 사용자 액션 후 배경음 재생 가능
+    setTimeout(() => {
+      window.location.href = "fortune.html";
+    }, 300);
+  });
+</script>
+
+<style>
+  /* 바나나 위치 조정 */
+  #bananaButton {
+    position: absolute;
+    top: 5%;
+    width: 60%;
+    height: 15%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+
+</body>
+</html>
