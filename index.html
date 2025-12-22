@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>바나나 운세</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -15,44 +16,24 @@
   <!-- 배경 음악 -->
   <audio id="bgm" src="sound/bgm.mp3" loop></audio>
 
-  <!-- 바나나 클릭 영역 (투명 버튼) -->
-
+  <!-- 바나나 클릭 이미지 -->
   <img src="image/banana_next.png" id="banana">
-</div>
 
 </div>
 
 <script>
-  const button = document.getElementById("bananaButton");
+  const banana = document.getElementById("banana");
   const clickSound = document.getElementById("clickSound");
   const bgm = document.getElementById("bgm");
-  const banana = document.getElementById("banana");
 
   banana.addEventListener("click", () => {
-    window.location.href = "fortune.html";
-  });
-
-  button.addEventListener("click", () => {
     clickSound.play();
-    bgm.play(); // 첫 사용자 액션 후 배경음 재생 가능
+    bgm.play(); // 첫 사용자 액션 후 재생 가능
     setTimeout(() => {
       window.location.href = "fortune.html";
     }, 300);
   });
 </script>
-
-<style>
-  /* 바나나 위치 조정 */
-  #bananaButton {
-    position: absolute;
-    top: 5%;
-    width: 60%;
-    height: 15%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
-</style>
 
 </body>
 </html>
