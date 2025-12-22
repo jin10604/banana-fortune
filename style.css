@@ -28,6 +28,6 @@ html, body {
   top: 6%;
   left: 50%;
   transform: translateX(-50%);
-  width: 20%;
+  width: 50%;
   cursor: pointer;
 }
