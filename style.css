@@ -29,6 +29,7 @@ html, body {
   left: 50%;
   width: 30%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 0, 0, 0.2);
+  cursor: pointer;
 }
+
 
