@@ -33,7 +33,5 @@ html, body {
   cursor: pointer;
   border: 5px solid blue;
 }
-body {
-  background: red !important;
-}
+
 
