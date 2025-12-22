@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>바나나 운세</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
 <div class="container">
@@ -16,10 +8,7 @@
   <!-- 배경 음악 -->
   <audio id="bgm" src="sound/bgm.mp3" loop></audio>
 
-  <!-- 바나나 클릭 이미지 -->
-  <img src="image/banana_next.png" id="banana">
-
-   <div class="stage">
+  <div class="stage">
     <img src="image/banana_next.png" id="banana">
   </div>
 
@@ -32,7 +21,7 @@
 
   banana.addEventListener("click", () => {
     clickSound.play();
-    bgm.play(); // 첫 사용자 액션 후 재생 가능
+    bgm.play();
     setTimeout(() => {
       window.location.href = "fortune.html";
     }, 300);
@@ -40,4 +29,3 @@
 </script>
 
 </body>
-</html>
