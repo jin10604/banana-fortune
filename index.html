@@ -17,6 +17,8 @@
 
   <!-- 바나나 클릭 영역 (투명 버튼) -->
   <button id="bananaButton"></button>
+  <img src="image/banana_next.png" id="banana">
+</div>
 
 </div>
 
@@ -24,6 +26,11 @@
   const button = document.getElementById("bananaButton");
   const clickSound = document.getElementById("clickSound");
   const bgm = document.getElementById("bgm");
+  const banana = document.getElementById("banana");
+
+  banana.addEventListener("click", () => {
+    window.location.href = "fortune.html";
+  });
 
   button.addEventListener("click", () => {
     clickSound.play();
