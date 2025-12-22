@@ -1,31 +1,9 @@
 <body>
 
 <div class="container">
-
-  <!-- 클릭 효과음 -->
-  <audio id="clickSound" src="sound/click.mp3"></audio>
-
-  <!-- 배경 음악 -->
-  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
-
   <div class="stage">
     <img src="image/banana_next.png" id="banana">
   </div>
-
 </div>
-
-<script>
-  const banana = document.getElementById("banana");
-  const clickSound = document.getElementById("clickSound");
-  const bgm = document.getElementById("bgm");
-
-  banana.addEventListener("click", () => {
-    clickSound.play();
-    bgm.play();
-    setTimeout(() => {
-      window.location.href = "fortune.html";
-    }, 300);
-  });
-</script>
 
 </body>
