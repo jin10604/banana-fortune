@@ -7,17 +7,15 @@ html, body {
 }
 
 .container {
+.container {
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("image/main.png");
-
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain; /* 이미지 비율 유지 */
   position: relative;
+}
+
 }
 #banana {
   position: absolute;
@@ -26,5 +24,14 @@ html, body {
   transform: translateX(-50%);
   width: 22%;
   cursor: pointer;
+}
+.stage {
+  height: 100%;
+  aspect-ratio: 9 / 16; /* 배경 이미지 비율 */
+  background-image: url("image/main.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
 }
 
