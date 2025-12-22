@@ -12,7 +12,6 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .stage {
@@ -28,10 +27,8 @@ html, body {
 #banana {
   position: absolute;
   top: 6%;
-  left: 30%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 20%;
   cursor: pointer;
-  border: 5px solid blue;
 }
-
-
