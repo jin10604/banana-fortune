@@ -26,7 +26,7 @@ html, body {
 #banana {
   position: absolute;
   top: 0%;
-  left: 50%;
-  width: 50%;
-  transform: translate(0%, -50%);
+  left: 0%;
+  width: 00%;
+  transform: translate(-50%, -50%);
 }
