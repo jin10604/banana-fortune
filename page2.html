@@ -9,10 +9,9 @@
 
   <div class="wrapper">
     <div class="stage">
-      <!-- 2페이지 배경 -->
       <img class="bg" src="image/page2.png" alt="background">
 
-      <!-- 오른쪽 상단 화살표 -->
+      <!-- 오른쪽 상단 화살표 2페이지로 이동 -->
       <img
         id="nextArrow"
         src="image/arrow.png"
@@ -21,9 +20,19 @@
     </div>
   </div>
 
-  <script>
-    const nextArrow = document.getElementById("nextArrow");
+  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
 
+  <script>
+    const bgm = document.getElementById("bgm");
+
+    // 🔴 index에서 시작된 BGM 이어받기
+    if (localStorage.getItem("bgmPlaying") === "true") {
+      bgm.volume = 0.6;
+      bgm.play();
+    }
+
+    // 3페이지로 이동
+    const nextArrow = document.getElementById("nextArrow");
     nextArrow.addEventListener("click", () => {
       location.href = "page3.html";
     });
