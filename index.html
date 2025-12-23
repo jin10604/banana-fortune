@@ -26,11 +26,18 @@
     bgm.volume = 0.6;
 
     banana.addEventListener("click", () => {
+      // 중복 클릭 방지
       banana.style.pointerEvents = "none";
+
+      // 클릭 효과음
       clickSound.currentTime = 0;
       clickSound.play();
-      bgm.play();
 
+      // 🔴 BGM 시작 (여기서만)
+      bgm.play();
+      localStorage.setItem("bgmPlaying", "true");
+
+      // 페이지 이동
       setTimeout(() => {
         location.href = "page2.html";
       }, 200);
