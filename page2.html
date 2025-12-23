@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>Page 2</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Banana Fortune</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="wrapper">
     <div class="stage">
+      <!-- 2페이지 배경 -->
       <img class="bg" src="image/page2.png" alt="background">
-      <!-- 여기에 캐릭터, 텍스트 등 -->
+
+      <!-- 오른쪽 상단 화살표 -->
+      <img
+        id="nextArrow"
+        src="image/arrow.png"
+        alt="next"
+      >
     </div>
   </div>
+
+  <script>
+    const nextArrow = document.getElementById("nextArrow");
+
+    nextArrow.addEventListener("click", () => {
+      location.href = "page3.html";
+    });
+  </script>
 
 </body>
 </html>
