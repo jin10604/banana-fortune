@@ -15,7 +15,7 @@
   </div>
 
   <audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
-  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
+  <audio id="bgm" src="sound/bgm.mp3" loop preload="auto"></audio>
 
   <script>
     const banana = document.getElementById("banana");
@@ -26,18 +26,17 @@
     bgm.volume = 0.6;
 
     banana.addEventListener("click", () => {
-      // 중복 클릭 방지
       banana.style.pointerEvents = "none";
 
-      // 클릭 효과음
-      clickSound.currentTime = 0;
-      clickSound.play();
-
-      // BGM 시작 (여기서만)
+      //  BGM 먼저 시작 (중요)
+      bgm.currentTime = 0;
       bgm.play();
       localStorage.setItem("bgmPlaying", "true");
 
-      // 페이지 이동
+      // 클릭 소리
+      clickSound.currentTime = 0;
+      clickSound.play();
+
       setTimeout(() => {
         location.href = "page2.html";
       }, 200);
