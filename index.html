@@ -7,9 +7,11 @@
 </head>
 <body>
 
-  <div class="stage">
-    <img class="bg" src="image/page1.png" alt="background">
-    <img id="banana" src="image/banana.png" alt="banana">
+  <div class="wrapper">
+    <div class="stage">
+      <img class="bg" src="image/main.png" alt="background">
+      <img id="banana" src="image/banana.png" alt="banana">
+    </div>
   </div>
 
   <audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
@@ -24,11 +26,10 @@
     bgm.volume = 0.6;
 
     banana.addEventListener("click", () => {
+      banana.style.pointerEvents = "none";
       clickSound.currentTime = 0;
       clickSound.play();
-
       bgm.play();
-      localStorage.setItem("bgmPlaying", "true");
 
       setTimeout(() => {
         location.href = "page2.html";
