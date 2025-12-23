@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banana Fortune</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- HTML head 안에 추가 -->
-<meta name="color-scheme" content="light">
-
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
   <div class="wrapper">
     <div class="stage">
-      <img id="banana" src="image/banana_next.png" />
+      <!-- 배경 이미지 (background-image ❌, img ⭕) -->
+      <img class="bg" src="image/main.png" alt="background">
+
+      <!-- 바나나 -->
+      <img id="banana" src="image/banana_next.png" alt="banana">
     </div>
   </div>
 
@@ -23,7 +25,7 @@
     banana.addEventListener("click", () => {
       clickSound.play();
       setTimeout(() => {
-        window.location.href = "page2.html";
+        location.href = "page2.html";
       }, 300);
     });
   </script>
