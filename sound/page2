@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page 2</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="stage">
+    <img class="bg" src="image/page2.png" alt="background">
+    <img id="nextBtn" src="image/arrow.png" alt="next">
+  </div>
+
+  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
+
+  <script>
+    const bgm = document.getElementById("bgm");
+
+    if (localStorage.getItem("bgmPlaying") === "true") {
+      bgm.volume = 0.6;
+      bgm.play();
+    }
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      location.href = "page3.html";
+    });
+  </script>
+
+</body>
+</html>
