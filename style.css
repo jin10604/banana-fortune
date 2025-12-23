@@ -36,9 +36,9 @@ html, body {
 /* 바나나 */
 #banana {
   position: absolute;
-  top: 17%;
+  top: 20%;
   left: 40%;
-  width: 75%;
+  width: 78%;
   transform: translate(-50%, -50%);
   z-index: 1;
   cursor: pointer;
