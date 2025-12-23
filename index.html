@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Banana Fortune</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="wrapper">
-    <div class="stage">
-      <!-- 배경 이미지 (background-image ❌, img ⭕) -->
-      <img class="bg" src="image/main.png" alt="background">
-
-      <!-- 바나나 -->
-      <img id="banana" src="image/banana_next.png" alt="banana">
-    </div>
+  <div class="stage">
+    <img class="bg" src="image/page1.png" alt="background">
+    <img id="banana" src="image/banana.png" alt="banana">
   </div>
 
+  <audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
+  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
+
   <script>
-    const clickSound = new Audio("sound/click.mp3");
     const banana = document.getElementById("banana");
+    const clickSound = document.getElementById("clickSound");
+    const bgm = document.getElementById("bgm");
+
+    clickSound.volume = 1.0;
+    bgm.volume = 0.6;
 
     banana.addEventListener("click", () => {
+      clickSound.currentTime = 0;
       clickSound.play();
+
+      bgm.play();
+      localStorage.setItem("bgmPlaying", "true");
+
       setTimeout(() => {
         location.href = "page2.html";
-      }, 300);
+      }, 200);
     });
   </script>
 
