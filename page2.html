@@ -11,7 +11,6 @@
     <div class="stage">
       <img class="bg" src="image/page2.png" alt="background">
 
-      <!-- 오른쪽 상단 화살표 2페이지로 이동 -->
       <img
         id="nextArrow"
         src="image/arrow.png"
@@ -20,21 +19,30 @@
     </div>
   </div>
 
-  <audio id="bgm" src="sound/bgm.mp3" loop></audio>
+  <audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
+  <audio id="bgm" src="sound/bgm.mp3" loop preload="auto"></audio>
 
   <script>
     const bgm = document.getElementById("bgm");
+    const clickSound = document.getElementById("clickSound");
+    const nextArrow = document.getElementById("nextArrow");
 
-    // 🔴 index에서 시작된 BGM 이어받기
+    clickSound.volume = 1.0;
+    bgm.volume = 0.6;
+
+    //  index에서 시작한 BGM 이어받기
     if (localStorage.getItem("bgmPlaying") === "true") {
-      bgm.volume = 0.6;
       bgm.play();
     }
 
-    // 3페이지로 이동
-    const nextArrow = document.getElementById("nextArrow");
+    // 화살표 클릭 → 소리 + 다음 페이지
     nextArrow.addEventListener("click", () => {
-      location.href = "page3.html";
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      setTimeout(() => {
+        location.href = "page3.html";
+      }, 200);
     });
   </script>
 
