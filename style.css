@@ -46,3 +46,12 @@ html, body {
   display: block;
   pointer-events: auto;
 }
+/* 3페이지로 넘어가는 버튼 */
+#nextArrow {
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  width: 12%;
+  cursor: pointer;
+  z-index: 2;
+}
