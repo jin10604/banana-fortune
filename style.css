@@ -59,7 +59,7 @@ html, body {
 }
 
 /* =========================
-   PAGE 3 FINAL FIX
+   PAGE 3 FINAL FIX v2
 ========================= */
 
 .stage.page3 {
@@ -67,24 +67,24 @@ html, body {
   width: 360px;
   height: 640px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .stage.page3 .bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
 }
 
-/* 바나나 전체 영역 */
+/* 바나나 영역 – 배경에 밀착 */
 .stage.page3 .banana-grid {
   position: absolute;
-  top: 130px;
+  top: 95px;
   left: 0;
   width: 100%;
-  height: 420px;
+  height: 440px;
   z-index: 2;
 
   display: grid;
@@ -93,30 +93,38 @@ html, body {
   place-items: center;
 }
 
-/* 바나나 공통 크기 통일 */
+/* 바나나 크기 통일 */
 .stage.page3 .banana3 {
-  width: 72px;
+  width: 60px;
+  max-width: 60px;
   height: auto;
   cursor: pointer;
   transition: transform 0.15s ease;
 }
 
-/* 선택된 바나나만 커지게 */
+/* 선택 시 작아지게 */
 .stage.page3 .banana3.selected {
-  transform: scale(1.25);
-  z-index: 5;
+  transform: scale(0.7);
+  opacity: 0.6;
 }
 
 /* 모바일 대응 */
 @media (max-width: 420px) {
   .stage.page3 {
     width: 100vw;
-    height: calc(100vw * 1.77);
+    height: 100vh;
+  }
+
+  .stage.page3 .banana-grid {
+    top: 22vw;
+    height: 78vw;
   }
 
   .stage.page3 .banana3 {
-    width: 18vw;
+    width: 14vw;
+    max-width: none;
   }
+}
 
   .stage.page3 .banana-grid {
     top: 34vw;
