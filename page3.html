@@ -2,89 +2,50 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Banana Fortune - Pick 2</title>
+  <title>Banana Fortune</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="wrapper">
   <div class="stage">
+    <img class="bg" src="image/page3.png">
 
-    <img class="bg" src="image/page3.png" alt="background">
+    <img class="bananaPick" src="image/banana_1.png" style="top:18%; left:15%;">
+    <img class="bananaPick" src="image/banana_2.png" style="top:18%; left:42%;">
+    <img class="bananaPick" src="image/banana_3.png" style="top:18%; left:69%;">
 
-    <img class="banana b1" src="image/banana_1.png">
-    <img class="banana b2" src="image/banana_2.png">
-    <img class="banana b3" src="image/banana_3.png">
-    <img class="banana b4" src="image/banana_4.png">
-    <img class="banana b5" src="image/banana_5.png">
-    <img class="banana b6" src="image/banana_6.png">
-    <img class="banana b7" src="image/banana_7.png">
-    <img class="banana b8" src="image/banana_8.png">
-    <img class="banana b9" src="image/banana_9.png">
+    <img class="bananaPick" src="image/banana_4.png" style="top:42%; left:15%;">
+    <img class="bananaPick" src="image/banana_5.png" style="top:42%; left:42%;">
+    <img class="bananaPick" src="image/banana_6.png" style="top:42%; left:69%;">
 
+    <img class="bananaPick" src="image/banana_7.png" style="top:66%; left:15%;">
+    <img class="bananaPick" src="image/banana_8.png" style="top:66%; left:42%;">
+    <img class="bananaPick" src="image/banana_9.png" style="top:66%; left:69%;">
   </div>
 </div>
 
-<audio id="clickSound" src="sound/click.mp3"></audio>
-<audio id="bgm" src="sound/bgm.mp3" loop></audio>
+<audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
 
 <script>
-const bananas = document.querySelectorAll(".banana");
+const bananas = document.querySelectorAll(".bananaPick");
 const clickSound = document.getElementById("clickSound");
+let picked = [];
 
-const positive = [
-  "오늘은 기분 좋은 소식이 찾아옵니다.",
-  "기대하지 않았던 기회가 생깁니다.",
-  "누군가 당신을 도와줄 것입니다.",
-  "작은 행운이 큰 기쁨으로 이어집니다.",
-  "노력한 만큼 보답을 받습니다.",
-  "오래된 고민이 해결됩니다.",
-  "좋은 인연을 만날 가능성이 큽니다.",
-  "오늘의 선택은 옳은 방향입니다.",
-  "당신의 매력이 빛나는 하루입니다."
-];
-
-const negative = [
-  "사소한 실수가 큰 오해로 번질 수 있습니다.",
-  "오늘은 말 한마디에 특히 조심하세요.",
-  "예상치 못한 지출이 생길 수 있습니다.",
-  "기대했던 일이 지연될 가능성이 있습니다.",
-  "컨디션 관리가 필요합니다.",
-  "주변 사람과의 마찰을 조심하세요.",
-  "결정을 미루는 것이 좋겠습니다.",
-  "집중력이 떨어질 수 있는 하루입니다.",
-  "무리하면 후회할 수 있습니다."
-];
-
-let count = 0;
-let results = [];
-
-function pickFortune(){
-  const isPositive = Math.random() < 0.5;
-  const pool = isPositive ? positive : negative;
-  const i = Math.floor(Math.random() * pool.length);
-  const text = pool.splice(i,1)[0];
-  return { type: isPositive ? "good" : "bad", text };
-}
-
-bananas.forEach(banana=>{
-  banana.addEventListener("click", ()=>{
-    if(count >= 2) return;
+bananas.forEach(banana => {
+  banana.addEventListener("click", () => {
+    if (picked.length >= 2 || banana.classList.contains("picked")) return;
 
     clickSound.currentTime = 0;
     clickSound.play();
-    banana.classList.add("selected");
 
-    const f = pickFortune();
-    results.push(f);
-    count++;
+    banana.classList.add("picked");
+    picked.push(banana);
 
-    if(count === 2){
-      localStorage.setItem("r1_type", results[0].type);
-      localStorage.setItem("r1_text", results[0].text);
-      localStorage.setItem("r2_type", results[1].type);
-      localStorage.setItem("r2_text", results[1].text);
-      setTimeout(()=>location.href="page4.html", 400);
+    if (picked.length === 2) {
+      setTimeout(() => {
+        location.href = "page4.html";
+      }, 400);
     }
   });
 });
