@@ -2,62 +2,61 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Banana Fortune_page3</title>
+  <title>page3</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="wrapper">
-  <div class="stage">
+  <div class="stage page3">
 
-    <!-- 배경은 맨 아래 -->
-    <img class="bg" src="image/page3.png">
+    <img class="bg" src="image/page3.png" alt="background">
 
-    <!-- 바나나 9개 -->
-    <img class="bananaPick" src="image/banana_1.png" style="top:18%; left:15%;">
-    <img class="bananaPick" src="image/banana_2.png" style="top:18%; left:42%;">
-    <img class="bananaPick" src="image/banana_3.png" style="top:18%; left:69%;">
+    <div class="banana-grid">
+      <img src="image/banana_1.png" class="banana3">
+      <img src="image/banana_2.png" class="banana3">
+      <img src="image/banana_3.png" class="banana3">
+      <img src="image/banana_4.png" class="banana3">
+      <img src="image/banana_5.png" class="banana3">
+      <img src="image/banana_6.png" class="banana3">
+      <img src="image/banana_7.png" class="banana3">
+      <img src="image/banana_8.png" class="banana3">
+      <img src="image/banana_9.png" class="banana3">
+    </div>
 
-    <img class="bananaPick" src="image/banana_4.png" style="top:42%; left:15%;">
-    <img class="bananaPick" src="image/banana_5.png" style="top:42%; left:42%;">
-    <img class="bananaPick" src="image/banana_6.png" style="top:42%; left:69%;">
-
-    <img class="bananaPick" src="image/banana_7.png" style="top:66%; left:15%;">
-    <img class="bananaPick" src="image/banana_8.png" style="top:66%; left:42%;">
-    <img class="bananaPick" src="image/banana_9.png" style="top:66%; left:69%;">
   </div>
 </div>
 
-<audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
+<audio id="clickSound" src="sound/click.mp3"></audio>
 <audio id="bgm" src="sound/bgm.mp3" loop></audio>
 
 <script>
-const bananas = document.querySelectorAll(".bananaPick");
-const clickSound = document.getElementById("clickSound");
-const bgm = document.getElementById("bgm");
+  const bananas = document.querySelectorAll(".banana3");
+  const clickSound = document.getElementById("clickSound");
+  const bgm = document.getElementById("bgm");
 
-bgm.volume = 0.6;
-bgm.play();
+  bgm.volume = 0.6;
+  bgm.play();
 
-let picked = [];
+  let selected = [];
 
-bananas.forEach(banana => {
-  banana.addEventListener("click", () => {
-    if (picked.length >= 2 || banana.classList.contains("picked")) return;
+  bananas.forEach((banana, index) => {
+    banana.addEventListener("click", () => {
+      if (selected.length >= 2 || banana.classList.contains("selected")) return;
 
-    clickSound.currentTime = 0;
-    clickSound.play();
+      clickSound.currentTime = 0;
+      clickSound.play();
 
-    banana.classList.add("picked");
-    picked.push(banana);
+      banana.classList.add("selected");
+      selected.push(index + 1);
 
-    if (picked.length === 2) {
-      setTimeout(() => {
-        location.href = "page4.html";
-      }, 400);
-    }
+      if (selected.length === 2) {
+        localStorage.setItem("bananaPick1", selected[0]);
+        localStorage.setItem("bananaPick2", selected[1]);
+        setTimeout(() => location.href = "page4.html", 500);
+      }
+    });
   });
-});
 </script>
 
 </body>
