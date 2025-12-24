@@ -58,19 +58,14 @@ html, body {
   z-index: 2;
 }
 
-/* ================= PAGE 3 ================= */
+/* ===== PAGE 3 ===== */
 
 .stage.page3 {
   position: relative;
   height: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 9/16;
 }
 
-.stage.page3 .bg {
-  object-fit: contain;
-}
-
-/* 3페이지 바나나 */
 .stage.page3 .bananaPick {
   position: absolute;
   width: 12%;
@@ -80,7 +75,6 @@ html, body {
   transition: transform 0.15s ease;
 }
 
-/* 클릭 시 작아지기 */
 .stage.page3 .bananaPick.picked {
   transform: translate(-50%, -50%) scale(0.75);
   pointer-events: none;
