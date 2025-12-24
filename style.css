@@ -58,26 +58,30 @@ html, body {
   z-index: 2;
 }
 
-.bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+/* ================= PAGE 3 ================= */
+
+.stage.page3 {
+  position: relative;
   height: 100%;
-  object-fit: contain;
-  z-index: 0;
+  aspect-ratio: 9 / 16;
 }
 
-.bananaPick {
+.stage.page3 .bg {
+  object-fit: contain;
+}
+
+/* 3페이지 바나나 */
+.stage.page3 .bananaPick {
   position: absolute;
   width: 12%;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  z-index: 1;
-  transition: transform 0.2s ease;
+  z-index: 2;
+  transition: transform 0.15s ease;
 }
 
-.bananaPick.picked {
-  transform: translate(-50%, -50%) scale(1.2);
+/* 클릭 시 작아지기 */
+.stage.page3 .bananaPick.picked {
+  transform: translate(-50%, -50%) scale(0.75);
   pointer-events: none;
 }
