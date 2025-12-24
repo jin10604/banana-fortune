@@ -58,62 +58,54 @@ html, body {
   z-index: 2;
 }
 
-/* 3page */
-/* 3페이지 바나나 고르기 */
-.banana3 {
+/* ================= PAGE 3 FIX ================= */
+
+.stage.page3 {
+  position: relative;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  justify-self: center;
-  align-self: center;
-  cursor: pointer;
 }
 
-.banana3 {
+/* 배경 */
+.stage.page3 > .bg {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  display: block;
+}
+
+/* 바나나 영역 기준 */
+.stage.page3 .banana-grid {
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78%;
+  height: 58%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+/* 바나나 크기 통일 */
+.stage.page3 .banana3 {
+  width: 85%;
   max-width: 110px;
-  max-height: 110px;
-  justify-self: center;
-  align-self: center;
+  object-fit: contain;
   cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-.banana3.selected {
-  transform: scale(1.15);
+/* 선택 효과 */
+.stage.page3 .banana3.selected {
+  transform: scale(1.25);
+  pointer-events: none;
 }
 
-.banana3 {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;   /* 비율 유지하며 박스 안에 맞춤 */
-  cursor: pointer;
-}
-
-/* PC */
-@media (min-width: 769px) {
-  .banana3 {
-    max-width: 110px;
-    max-height: 110px;
-  }
-}
-
-/* 모바일 */
-@media (max-width: 768px) {
-  .banana3 {
-    width: 18vw;
-    height: 18vw;
+/* 모바일 대응 */
+@media (max-width: 480px) {
+  .stage.page3 .banana3 {
+    width: 24vw;
     max-width: none;
-    max-height: none;
   }
 }
-
-@media (max-width: 768px) {
-  .banana-grid {
-    width: 90%;
-    height: 52%;
-    gap: 8%;
-  }
-}
-
