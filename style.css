@@ -55,3 +55,17 @@ html, body {
   cursor: pointer;
   z-index: 2;
 }
+/* 3페이지 바나나 고르기 */
+.bananaPick {
+  position: absolute;
+  width: 18%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.bananaPick.picked {
+  transform: translate(-50%, -50%) scale(1.25);
+  pointer-events: none;
+}
+
