@@ -58,34 +58,33 @@ html, body {
   z-index: 2;
 }
 
-/* ===== page3 ===== */
+/* ===== page3 REVERT & SCALE FIX ===== */
 
 .stage.page3 {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  aspect-ratio: 9 / 16;
-  height: auto;
+  max-width: 430px;
+  height: 100vh;
   margin: 0 auto;
   overflow: hidden;
-  background: #000;
 }
 
 .stage.page3 .bg {
   position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: 1;
 }
 
-/* 바나나 영역 */
+/* 기존 구조 유지 */
 .stage.page3 .banana-grid {
   position: absolute;
-  top: 18%;
-  left: 0;
-  width: 100%;
-  height: 62%;
+  top: 20%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
   z-index: 2;
 
   display: grid;
@@ -94,15 +93,15 @@ html, body {
   place-items: center;
 }
 
-/* 바나나 기본 */
+/* 핵심 수정 */
 .stage.page3 .banana3 {
-  width: 18%;
-  height: auto;
+  width: 72%;           /* 기존보다 작게 */
+  height: auto;        /* 비율 유지 */
+  max-width: 100%;
   transition: transform 0.15s ease;
-  cursor: pointer;
 }
 
-/* 선택되었을 때 → 작아지기 */
+/* 클릭 시 작아지게 */
 .stage.page3 .banana3.selected {
   transform: scale(0.75);
 }
