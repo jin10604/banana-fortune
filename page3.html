@@ -9,21 +9,19 @@
 
 <div class="wrapper">
   <div class="stage page3">
+    <img class="bg" src="image/page3.png">
 
-    <img class="bg" src="image/page3.png" alt="background">
+    <img src="image/banana_1.png" class="bananaPick" style="top:28%; left:25%;">
+    <img src="image/banana_2.png" class="bananaPick" style="top:28%; left:50%;">
+    <img src="image/banana_3.png" class="bananaPick" style="top:28%; left:75%;">
 
-    <div class="banana-grid">
-      <img src="image/banana_1.png" class="banana3">
-      <img src="image/banana_2.png" class="banana3">
-      <img src="image/banana_3.png" class="banana3">
-      <img src="image/banana_4.png" class="banana3">
-      <img src="image/banana_5.png" class="banana3">
-      <img src="image/banana_6.png" class="banana3">
-      <img src="image/banana_7.png" class="banana3">
-      <img src="image/banana_8.png" class="banana3">
-      <img src="image/banana_9.png" class="banana3">
-    </div>
+    <img src="image/banana_4.png" class="bananaPick" style="top:50%; left:25%;">
+    <img src="image/banana_5.png" class="bananaPick" style="top:50%; left:50%;">
+    <img src="image/banana_6.png" class="bananaPick" style="top:50%; left:75%;">
 
+    <img src="image/banana_7.png" class="bananaPick" style="top:72%; left:25%;">
+    <img src="image/banana_8.png" class="bananaPick" style="top:72%; left:50%;">
+    <img src="image/banana_9.png" class="bananaPick" style="top:72%; left:75%;">
   </div>
 </div>
 
@@ -31,7 +29,7 @@
 <audio id="bgm" src="sound/bgm.mp3" loop></audio>
 
 <script>
-  const bananas = document.querySelectorAll(".banana3");
+  const bananas = document.querySelectorAll(".bananaPick");
   const clickSound = document.getElementById("clickSound");
   const bgm = document.getElementById("bgm");
 
@@ -40,20 +38,20 @@
 
   let selected = [];
 
-  bananas.forEach((banana, index) => {
+  bananas.forEach((banana, i) => {
     banana.addEventListener("click", () => {
-      if (selected.length >= 2 || banana.classList.contains("selected")) return;
+      if (selected.length >= 2 || banana.classList.contains("picked")) return;
 
       clickSound.currentTime = 0;
       clickSound.play();
 
-      banana.classList.add("selected");
-      selected.push(index + 1);
+      banana.classList.add("picked");
+      selected.push(i+1);
 
       if (selected.length === 2) {
-        localStorage.setItem("bananaPick1", selected[0]);
-        localStorage.setItem("bananaPick2", selected[1]);
-        setTimeout(() => location.href = "page4.html", 500);
+        localStorage.setItem("banana1", selected[0]);
+        localStorage.setItem("banana2", selected[1]);
+        setTimeout(() => location.href="page4.html", 500);
       }
     });
   });
