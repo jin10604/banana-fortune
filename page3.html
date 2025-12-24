@@ -2,15 +2,18 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Banana Fortune</title>
+  <title>Banana Fortune_page3</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="wrapper">
   <div class="stage">
+
+    <!-- 배경은 맨 아래 -->
     <img class="bg" src="image/page3.png">
 
+    <!-- 바나나 9개 -->
     <img class="bananaPick" src="image/banana_1.png" style="top:18%; left:15%;">
     <img class="bananaPick" src="image/banana_2.png" style="top:18%; left:42%;">
     <img class="bananaPick" src="image/banana_3.png" style="top:18%; left:69%;">
@@ -26,10 +29,16 @@
 </div>
 
 <audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
+<audio id="bgm" src="sound/bgm.mp3" loop></audio>
 
 <script>
 const bananas = document.querySelectorAll(".bananaPick");
 const clickSound = document.getElementById("clickSound");
+const bgm = document.getElementById("bgm");
+
+bgm.volume = 0.6;
+bgm.play();
+
 let picked = [];
 
 bananas.forEach(banana => {
