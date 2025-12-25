@@ -60,29 +60,31 @@ html, body {
 
 /* ===== PAGE 3 ===== */
 
+/* ===== PAGE 3 ===== */
+
+.stage.page3 {
+  position: relative;
+  height: 100%;
+}
+
+/* 모든 바나나 공통 */
 .stage.page3 .bananaPick {
   position: absolute;
   width: 15%;
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
-  transition: opacity 0.15s ease, filter 0.15s ease;
+  transition: opacity 0.35s ease;
 }
 
-/* 원본이 큰 2,3,5번만 크기 보정 */
+/* 원본 이미지가 큰 2,3,5번 바나나 보정 */
 .stage.page3 .bananaPick.small {
   transform: translate(-50%, -50%) scale(0.88);
 }
 
-/* 클릭 시: 색만 연해짐 */
-.stage.page3 .bananaPick.picked {
-  opacity: 0.45;
-  filter: grayscale(50%);
-  pointer-events: none;
-}
-
-/* 2,3,5번도 클릭 시 동일 */
+/* 클릭 시 서서히 사라지게 */
+.stage.page3 .bananaPick.picked,
 .stage.page3 .bananaPick.small.picked {
-  opacity: 0.45;
-  filter: grayscale(50%);
+  opacity: 0;
+  pointer-events: none;
 }
