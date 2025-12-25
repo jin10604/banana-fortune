@@ -63,7 +63,7 @@ html, body {
 .stage.page3 .bananaPick {
   position: absolute;
   width: 13%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1.2);
   cursor: pointer;
   z-index: 2;
   transition: transform 0.15s ease, opacity 0.15s ease;
@@ -71,7 +71,7 @@ html, body {
 
 /* 원본이 큰 2,3,5번만 살짝 줄임 */
 .stage.page3 .bananaPick.small {
-  transform: translate(-50%, -50%) scale(0.88);
+  transform: translate(-50%, -50%) scale(0.8);
 }
 
 /* 클릭 시 전부 동일 */
