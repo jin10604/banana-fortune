@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banana Fortune_page4</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -48,20 +49,25 @@ const negative = [
   "마음이 복잡해질 수 있습니다."
 ];
 
-function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
 const a = Math.random() < 0.5 ? 'pos' : 'neg';
 const b = Math.random() < 0.5 ? 'pos' : 'neg';
 
-let linkWord = (a===b) ? "또한" : "그러나";
+const linkWord = (a === b) ? "또한" : "그러나";
 
-const t1 = a==='pos' ? pick(positive) : pick(negative);
+const t1 = (a === 'pos') ? pick(positive) : pick(negative);
 let t2;
 do {
-  t2 = b==='pos' ? pick(positive) : pick(negative);
+  t2 = (b === 'pos') ? pick(positive) : pick(negative);
 } while (t1 === t2);
 
-document.getElementById("fortuneText").innerText = `${t1}\n${linkWord},\n${t2}`;
+document.getElementById("fortuneText").innerText =
+`${t1}
+${linkWord},
+${t2}`;
 </script>
 
 </body>
