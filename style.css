@@ -1,15 +1,11 @@
 /**/
+
 @font-face {
-  font-family: "Galmuri9";
-  src: url("font/Galmuri9.ttf") format("truetype");
-}
-
-html {
-  color-scheme: light;
-}
-
-body {
-  background: #ffffff;
+  font-family: 'Galmuri9';
+  src: url('font/galmuri9.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 /**/
@@ -103,40 +99,52 @@ html, body {
   pointer-events: none;
 }
 
-/* ===== PAGE 4 ===== */
+.page4 {
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+}
 
-.stage.page4 {
+.phone-frame {
+  width: 360px;
+  height: 640px;
+  background: url("image/bg.png") no-repeat center/cover;
   position: relative;
-  height: 100%;
-  aspect-ratio: 9 / 16;
+  overflow: hidden;
 }
 
-/* 배경 */
-.stage.page4 .bg {
+.poop-wrap {
+  width: 260px;
+  height: 230px;
+  background: url("image/poop.png") no-repeat center/contain;
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  z-index: 0;
-}
-
-/* 운세 텍스트를 담는 영역 (핑크 똥 이미지 중앙) */
-.stage.page4 .poopBox {
-  position: absolute;
-  top: 38%;
+  top: 70px;
   left: 50%;
-  width: 70%;
   transform: translateX(-50%);
-  z-index: 2;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 24px;
+  box-sizing: border-box;
 }
 
-/* 운세 텍스트 스타일 */
-.stage.page4 #fortuneText {
+#fortuneText {
   font-family: 'Galmuri9';
   font-size: 10pt;
   line-height: 18pt;
   color: #381b05;
+  text-align: center;
+  word-break: keep-all;
 }
+
+.monkey-wrap {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.monkey-wrap img {
+  width: 120px;
+}
+
