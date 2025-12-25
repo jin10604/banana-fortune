@@ -79,7 +79,7 @@ html, body {
 
 /* 원본 이미지가 큰 2,3,5번 바나나 보정 */
 .stage.page3 .bananaPick.small {
-  transform: translate(-50%, -50%) scale(0.88);
+  transform: translate(-50%, -50%) scale(0.75);
 }
 
 /* 클릭 시 서서히 사라지게 */
