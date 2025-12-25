@@ -62,7 +62,7 @@ html, body {
 
 .stage.page3 .bananaPick {
   position: absolute;
-  width: 13%;
+  width: 15%;
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
