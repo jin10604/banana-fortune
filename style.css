@@ -58,7 +58,6 @@ html, body {
   z-index: 2;
 }
 
-/* ===== PAGE 3 ===== */
 
 /* ===== PAGE 3 ===== */
 
@@ -91,25 +90,23 @@ html, body {
 
 /* ===== PAGE 4 ===== */
 
+
 .stage.page4 {
   position: relative;
+  height: 100%;
 }
 
-#resultBox {
+#fortuneText {
   position: absolute;
-  top: 60%;
+  top: 40%;        /* 똥모양 중앙 위치에 맞게 조정 */
   left: 50%;
-  width: 80%;
+  width: 55%;
   transform: translate(-50%, -50%);
-  z-index: 3;
   text-align: center;
+  font-family: "Galmuri9", sans-serif;
+  font-size: 10pt;
+  line-height: 18pt;
+  color: #381b05;
+  z-index: 2;
+  pointer-events: none;
 }
-
-#resultText {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: #222;
-  font-weight: bold;
-  word-break: keep-all;
-}
-
