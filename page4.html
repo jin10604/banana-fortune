@@ -9,13 +9,8 @@
 
 <div class="wrapper">
   <div class="stage page4">
-
-    <!-- 통합 배경 -->
     <img class="bg" src="image/page4.png" alt="background">
-
-    <!-- 운세 텍스트 -->
     <div id="fortuneText"></div>
-
   </div>
 </div>
 
@@ -50,16 +45,24 @@
     "집중력이 흐트러질 수 있습니다."
   ];
 
-  function pick(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+  function pickUnique(arr, used) {
+    let result;
+    do {
+      result = arr[Math.floor(Math.random() * arr.length)];
+    } while (used.includes(result));
+    used.push(result);
+    return result;
   }
 
-  const isPositive1 = Math.random() < 0.5;
-  const isPositive2 = Math.random() < 0.5;
+  const used = [];
 
-  const first = isPositive1 ? pick(positive) : pick(negative);
-  const second = isPositive2 ? pick(positive) : pick(negative);
-  const connector = (isPositive1 === isPositive2) ? " 또한 " : " 그러나 ";
+  const type1 = Math.random() < 0.5 ? "pos" : "neg";
+  const type2 = Math.random() < 0.5 ? "pos" : "neg";
+
+  const first  = type1 === "pos" ? pickUnique(positive, used) : pickUnique(negative, used);
+  const second = type2 === "pos" ? pickUnique(positive, used) : pickUnique(negative, used);
+
+  const connector = (type1 === type2) ? " 또한 " : " 그러나 ";
 
   document.getElementById("fortuneText").innerText = first + connector + second;
 </script>
