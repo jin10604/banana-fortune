@@ -2,65 +2,67 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Banana Fortune - Page4</title>
+  <title>Banana Fortune_page4</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="page4">
+<body>
 
-  <div class="wrapper">
-    <div class="stage page4">
-      <img class="bg" src="image/page4.png" alt="background">
+<div class="wrapper">
+  <div class="stage page4">
+    <img class="bg" src="image/page4.png" alt="background">
 
-      <div id="fortuneBox">
-        <div id="fortuneText"></div>
-      </div>
+    <div id="fortuneBox">
+      <p id="fortuneText"></p>
     </div>
   </div>
+</div>
 
-  <script>
-    const positive = [
-      "오늘은 뜻밖의 행운이 찾아옵니다.",
-      "작은 선택이 큰 기회를 부릅니다.",
-      "당신을 돕는 사람이 곁에 있습니다.",
-      "오래 고민하던 문제가 풀립니다.",
-      "좋은 소식이 곧 도착합니다.",
-      "노력한 만큼 보상을 받습니다.",
-      "새로운 인연이 시작됩니다.",
-      "당신의 선택이 옳았습니다.",
-      "기다리던 일이 성과를 냅니다.",
-      "오늘 하루는 평온하게 흐릅니다.",
-      "주변 사람에게서 힘을 얻습니다.",
-      "당신의 매력이 빛나는 날입니다."
-    ];
+<script>
+const positive = [
+  "오늘은 뜻밖의 행운이 찾아옵니다.",
+  "작은 선택이 큰 기쁨을 가져옵니다.",
+  "당신의 노력이 인정받게 됩니다.",
+  "기다리던 소식이 곧 들려옵니다.",
+  "좋은 인연을 만나게 됩니다.",
+  "우연이 필연이 되는 하루입니다.",
+  "당신을 응원하는 사람이 있습니다.",
+  "마음먹은 일이 술술 풀립니다.",
+  "따뜻한 말 한마디가 큰 힘이 됩니다.",
+  "오늘의 웃음이 오래 기억됩니다.",
+  "기대하지 않았던 기회가 옵니다.",
+  "행복은 이미 당신 곁에 있습니다."
+];
 
-    const negative = [
-      "오늘은 예상치 못한 방해가 생깁니다.",
-      "조급한 선택은 후회를 부를 수 있습니다.",
-      "말 한마디로 오해가 생길 수 있습니다.",
-      "중요한 약속을 다시 확인하세요.",
-      "작은 실수가 큰 문제로 번질 수 있습니다.",
-      "지나친 기대는 실망으로 이어집니다.",
-      "오늘은 조용히 넘어가는 것이 좋습니다.",
-      "주변 상황을 한 번 더 살펴보세요.",
-      "피곤함이 판단력을 흐릴 수 있습니다.",
-      "혼자 결정하지 말고 상의하세요.",
-      "생각보다 일이 더디게 흘러갑니다.",
-      "오늘은 쉬어가는 것도 방법입니다."
-    ];
+const negative = [
+  "조급함이 일을 망칠 수 있습니다.",
+  "말 한마디로 오해가 생길 수 있습니다.",
+  "오늘은 혼자만의 시간이 필요합니다.",
+  "계획이 어긋날 수 있으니 여유를 가지세요.",
+  "작은 실수가 크게 느껴질 수 있습니다.",
+  "감정 조절이 중요한 하루입니다.",
+  "주변 상황을 한 번 더 살펴보세요.",
+  "지나친 기대는 실망으로 돌아옵니다.",
+  "피로가 쌓일 수 있습니다.",
+  "불필요한 말은 삼키는 게 좋습니다.",
+  "오늘은 운보다 신중함이 필요합니다.",
+  "마음이 복잡해질 수 있습니다."
+];
 
-    function pickRandom(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
+function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
 
-    const firstPositive = Math.random() < 0.5;
+const a = Math.random() < 0.5 ? 'pos' : 'neg';
+const b = Math.random() < 0.5 ? 'pos' : 'neg';
 
-    const first = firstPositive ? pickRandom(positive) : pickRandom(negative);
-    const second = firstPositive ? pickRandom(negative) : pickRandom(positive);
-    const connector = firstPositive ? "또한," : "그러나,";
+let linkWord = (a===b) ? "또한" : "그러나";
 
-    document.getElementById("fortuneText").innerText =
-      first + "\n" + connector + " " + second;
-  </script>
+const t1 = a==='pos' ? pick(positive) : pick(negative);
+let t2;
+do {
+  t2 = b==='pos' ? pick(positive) : pick(negative);
+} while (t1 === t2);
+
+document.getElementById("fortuneText").innerText = `${t1}\n${linkWord},\n${t2}`;
+</script>
 
 </body>
 </html>
