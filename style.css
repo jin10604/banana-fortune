@@ -88,3 +88,28 @@ html, body {
   opacity: 0;
   pointer-events: none;
 }
+
+/* ===== PAGE 4 ===== */
+
+.stage.page4 {
+  position: relative;
+}
+
+#resultBox {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  text-align: center;
+}
+
+#resultText {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #222;
+  font-weight: bold;
+  word-break: keep-all;
+}
+
