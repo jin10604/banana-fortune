@@ -1,3 +1,18 @@
+/**/
+@font-face {
+  font-family: "Galmuri9";
+  src: url("font/Galmuri9.ttf") format("truetype");
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: #ffffff;
+}
+
+/**/
 html, body {
   margin: 0;
   padding: 0;
