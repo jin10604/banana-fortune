@@ -2,74 +2,70 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>page4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banana Fortune - 결과</title>
   <link rel="stylesheet" href="style.css">
-
-  <style>
-    @font-face {
-      font-family: 'Galmuri9';
-      src: url('font/galmuri9.ttf') format('truetype');
-    }
-  </style>
 </head>
-<body>
+<body class="page4">
 
-<div class="wrapper">
-  <div class="stage page4">
-    <img class="bg" src="image/page4.png">
+  <div class="phone-frame">
 
-    <div class="poopBox">
+    <div class="poop-wrap">
       <div id="fortuneText"></div>
     </div>
+
+    <div class="monkey-wrap">
+      <img src="image/monkey.png" alt="monkey">
+    </div>
+
   </div>
-</div>
 
 <script>
-  let positive = [
-    "기대하지 않았던 행운이 찾아옵니다.",
-    "오래 고민한 일이 드디어 해결됩니다.",
-    "당신의 선택이 좋은 결과로 이어집니다.",
-    "주변 사람이 큰 힘이 되어줍니다.",
-    "뜻밖의 기회가 눈앞에 나타납니다.",
-    "작은 용기가 큰 성과를 만듭니다.",
-    "오늘의 노력은 오래 기억될 것입니다.",
-    "행복한 소식이 곧 들려옵니다.",
-    "당신을 응원하는 사람이 많습니다.",
-    "계획이 순조롭게 풀려갑니다.",
-    "소중한 인연을 다시 만나게 됩니다.",
-    "당신의 진심이 통합니다."
-  ];
+const positive = [
+ "기다리던 기회가 찾아옵니다.",
+ "좋은 소식이 곧 들려옵니다.",
+ "노력한 만큼 보상을 받습니다.",
+ "사람들에게 인정받게 됩니다.",
+ "금전운이 상승합니다.",
+ "뜻밖의 행운이 따릅니다.",
+ "주변의 응원을 받습니다.",
+ "행복한 만남이 생깁니다.",
+ "원하던 일이 성사됩니다.",
+ "기분 좋은 변화가 시작됩니다.",
+ "오래 고민한 문제가 해결됩니다.",
+ "새로운 기회가 열립니다."
+];
 
-  let negative = [
-    "예상치 못한 방해로 계획이 틀어질 수 있습니다.",
-    "가까운 사람과 오해가 생길 수 있습니다.",
-    "중요한 기회를 놓칠 수 있으니 주의하세요.",
-    "작은 실수가 큰 불편으로 이어집니다.",
-    "오늘은 결정을 미루는 편이 좋겠습니다.",
-    "생각보다 일이 더디게 흘러갑니다.",
-    "괜한 걱정이 마음을 무겁게 합니다.",
-    "주변 상황에 휘둘리기 쉽습니다.",
-    "노력 대비 결과가 아쉬울 수 있습니다.",
-    "말 한마디로 문제가 생길 수 있습니다.",
-    "컨디션 관리가 필요한 하루입니다.",
-    "기대했던 일에서 실망할 수 있습니다."
-  ];
+const negative = [
+ "작은 실수가 큰 후회로 이어질 수 있습니다.",
+ "지나친 기대는 실망을 부를 수 있습니다.",
+ "불필요한 오해가 생길 수 있습니다.",
+ "지출이 늘어나 주의가 필요합니다.",
+ "주변 사람과의 갈등에 유의하세요.",
+ "건강 관리에 신경 써야 합니다.",
+ "계획이 지연될 수 있습니다.",
+ "조급함이 문제를 키울 수 있습니다.",
+ "약속 변경에 대비하세요.",
+ "집중력이 떨어질 수 있습니다.",
+ "예상치 못한 변수가 생깁니다.",
+ "기분이 쉽게 가라앉을 수 있습니다."
+];
 
-  function drawAndRemove(arr){
-    const idx = Math.floor(Math.random() * arr.length);
-    return arr.splice(idx,1)[0];
-  }
+function pick(arr){
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-  const type1 = Math.random() < 0.5 ? "p" : "n";
-  const type2 = Math.random() < 0.5 ? "p" : "n";
+const a = pick(positive.concat(negative));
+const b = pick(positive.concat(negative));
 
-  const text1 = type1 === "p" ? drawAndRemove(positive) : drawAndRemove(negative);
-  const text2 = type2 === "p" ? drawAndRemove(positive) : drawAndRemove(negative);
+let connector = "";
+if((positive.includes(a) && positive.includes(b)) || (negative.includes(a) && negative.includes(b))){
+  connector = " 또한 ";
+}else{
+  connector = " 그러나 ";
+}
 
-  const linkWord = (type1 === type2) ? " 또한 " : " 그러나 ";
-
-  document.getElementById("fortuneText").innerText =
-    text1 + linkWord + text2;
+document.getElementById("fortuneText").innerText = a + connector + b;
 </script>
 
 </body>
