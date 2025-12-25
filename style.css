@@ -99,15 +99,14 @@ html, body {
   pointer-events: none;
 }
 
-/*pege4 시작*/
+/* ===== PAGE 4 ===== */
 
 .stage.page4 {
   position: relative;
   height: 100%;
-  aspect-ratio: 9 / 16;
+  background-color: #ffffff;   /* 배경 어두워지는 문제 해결 */
 }
 
-/* 글씨 박스 */
 #fortuneBox {
   position: absolute;
   top: 43%;
@@ -118,10 +117,9 @@ html, body {
   z-index: 3;
 }
 
-/* 운세 글씨 */
 #fortuneText {
   font-family: 'Galmuri9', sans-serif;
-  font-size: clamp(18px, 3.2vw, 26px);
+  font-size: clamp(18px, 4vw, 26px);
   line-height: 18pt;
   color: #381b05;
   white-space: pre-line;
