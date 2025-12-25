@@ -2,12 +2,11 @@
 
 @font-face {
   font-family: 'Galmuri9';
-  src: url('font/galmuri9.woff2') format('woff2');
+  src: url('font/galmuri9.woff2') format('woff2'),
+       url('font/galmuri9.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
-
 /**/
 html, body {
   margin: 0;
@@ -99,52 +98,38 @@ html, body {
   pointer-events: none;
 }
 
+/*pege4 시작*/
+
 .page4 {
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: #000;
 }
 
-.phone-frame {
-  width: 360px;
-  height: 640px;
-  background: url("image/bg.png") no-repeat center/cover;
+.page4-stage {
   position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: url("image/page4.png") no-repeat center center;
+  background-size: contain;
+}
+
+#fortuneBox {
+  position: absolute;
+  width: 42%;
+  height: 34%;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
 }
 
-.poop-wrap {
-  width: 260px;
-  height: 230px;
-  background: url("image/poop.png") no-repeat center/contain;
-  position: absolute;
-  top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 28px 24px;
-  box-sizing: border-box;
-}
-
 #fortuneText {
-  font-family: 'Galmuri9';
+  font-family: 'Galmuri9', sans-serif;
   font-size: 10pt;
   line-height: 18pt;
   color: #381b05;
   text-align: center;
+  white-space: pre-line;
   word-break: keep-all;
 }
-
-.monkey-wrap {
-  position: absolute;
-  bottom: 40px;
-  width: 100%;
-  text-align: center;
-}
-
-.monkey-wrap img {
-  width: 120px;
-}
-
