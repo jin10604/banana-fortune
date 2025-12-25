@@ -84,5 +84,5 @@ html, body {
 
 /* 2,3,5번 클릭 시도 동일하게 */
 .stage.page3 .bananaPick.small.picked {
-  transform: translate(-50%, -50%) scale(0.7);
+  transform: translate(-50%, -50%) scale(0.4);
 }
