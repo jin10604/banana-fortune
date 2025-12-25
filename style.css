@@ -76,7 +76,7 @@ html, body {
 
 /* 클릭 시 전부 동일 */
 .stage.page3 .bananaPick.picked {
-  transform: translate(-50%, -50%) scale(0.7);
+  transform: translate(-50%, -50%) scale(1);
   opacity: 0.5;
   filter: grayscale(40%);
   pointer-events: none;
