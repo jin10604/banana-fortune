@@ -81,7 +81,12 @@ html, body {
   filter: grayscale(40%);   /* 살짝 색 빠지게 */
   pointer-events: none;
 }
-
+/* 2,3,5바나나 크기 조절  */
 .stage.page3 .bananaPick.small {
   transform: translate(-50%, -50%) scale(0.8);
 }
+/* 2,3,5바나나 클릭시 작아지게 */
+.stage.page3 .bananaPick.small.picked {
+  transform: translate(-50%, -50%) scale(0.75);
+}
+
