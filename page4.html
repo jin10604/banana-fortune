@@ -9,50 +9,59 @@
 
 <div class="wrapper">
   <div class="stage page4">
+
+    <!-- 통합 배경 -->
     <img class="bg" src="image/page4.png" alt="background">
-    <div class="poopText" id="resultText"></div>
+
+    <!-- 운세 텍스트 -->
+    <div id="fortuneText"></div>
+
   </div>
 </div>
 
+<audio id="bgm" src="sound/bgm.mp3" loop preload="auto"></audio>
+
 <script>
+  const bgm = document.getElementById("bgm");
+  bgm.volume = 0.3;
+  if (localStorage.getItem("bgmPlaying") === "true") bgm.play();
+
   const positive = [
-    "기분 좋은 소식이 들려올 것입니다.",
-    "작은 행운이 하루를 밝혀줍니다.",
-    "기대하지 않았던 도움을 받게 됩니다.",
-    "노력한 만큼의 보상을 얻게 됩니다.",
-    "기분 좋은 만남이 기다리고 있습니다.",
-    "즐거운 일이 연이어 생길 것입니다.",
-    "웃을 일이 많아지는 하루입니다.",
-    "행복한 우연이 찾아옵니다.",
-    "마음이 한결 가벼워질 것입니다."
+    "뜻밖의 행운이 찾아옵니다.",
+    "기다리던 소식을 듣게 됩니다.",
+    "당신을 도와줄 사람이 나타납니다.",
+    "작은 선택이 큰 기회를 만듭니다.",
+    "오래된 고민이 풀립니다.",
+    "노력한 만큼 보상이 따릅니다.",
+    "당신의 매력이 빛나는 하루입니다.",
+    "기쁜 만남이 기다리고 있습니다.",
+    "마음이 편안해지는 일이 생깁니다."
   ];
 
   const negative = [
-    "사소한 실수로 일정이 꼬일 수 있습니다.",
-    "기대했던 일이 미뤄질 수 있습니다.",
-    "감정 기복에 주의가 필요합니다.",
-    "말 한마디로 오해가 생길 수 있습니다.",
-    "체력 관리에 신경 써야 합니다.",
-    "작은 손해가 발생할 수 있습니다.",
-    "집중력이 흐트러질 수 있습니다.",
-    "계획에 변수가 생길 수 있습니다.",
-    "조금 답답한 상황이 이어질 수 있습니다."
+    "사소한 말다툼을 조심하세요.",
+    "기대했던 일이 지연될 수 있습니다.",
+    "오늘은 무리하지 않는 것이 좋습니다.",
+    "작은 실수가 반복될 수 있습니다.",
+    "감정 조절이 필요합니다.",
+    "주변 상황을 다시 살펴보세요.",
+    "예상치 못한 변수가 생깁니다.",
+    "결정을 미루는 편이 좋겠습니다.",
+    "집중력이 흐트러질 수 있습니다."
   ];
 
-  function pickRandom(arr) {
+  function pick(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  const firstType  = Math.random() < 0.5 ? "positive" : "negative";
-  const secondType = Math.random() < 0.5 ? "positive" : "negative";
+  const isPositive1 = Math.random() < 0.5;
+  const isPositive2 = Math.random() < 0.5;
 
-  const firstText  = firstType  === "positive" ? pickRandom(positive) : pickRandom(negative);
-  const secondText = secondType === "positive" ? pickRandom(positive) : pickRandom(negative);
+  const first = isPositive1 ? pick(positive) : pick(negative);
+  const second = isPositive2 ? pick(positive) : pick(negative);
+  const connector = (isPositive1 === isPositive2) ? " 또한 " : " 그러나 ";
 
-  const connector = firstType === secondType ? " 또한 " : " 그러나 ";
-
-  document.getElementById("resultText").innerText =
-    firstText + connector + secondText;
+  document.getElementById("fortuneText").innerText = first + connector + second;
 </script>
 
 </body>
