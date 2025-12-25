@@ -60,33 +60,25 @@ html, body {
 
 /* ===== PAGE 3 ===== */
 
-.stage.page3 {
-  position: relative;
-  height: 100%;
-  aspect-ratio: 9/16;
-}
-
+/* 모든 바나나 기본 크기 (나머지 바나나용) */
 .stage.page3 .bananaPick {
   position: absolute;
-  width: 12%;
-  transform: translate(-50%, -50%) scale(1.2);
+  width: 13.5%;   /* ← 나머지 바나나 전체적으로 살짝 키움 */
+  transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 2;
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
+/* 2,3,5번 바나나는 원본 이미지가 커서 오히려 줄임 */
+.stage.page3 .bananaPick.small {
+  width: 12%;
+}
+
+/* 클릭 시 전부 동일한 효과 */
 .stage.page3 .bananaPick.picked {
   transform: translate(-50%, -50%) scale(0.75);
-   opacity: 0.5;              /* 연해지게 */
-  filter: grayscale(40%);   /* 살짝 색 빠지게 */
+  opacity: 0.5;
+  filter: grayscale(40%);
   pointer-events: none;
 }
-/* 2,3,5바나나 크기 조절  */
-.stage.page3 .bananaPick.small {
-  transform: translate(-50%, -50%) scale(0.8);
-}
-/* 2,3,5바나나 클릭시 작아지게 */
-.stage.page3 .bananaPick.small.picked {
-  transform: translate(-50%, -50%) scale(0.75);
-}
-
