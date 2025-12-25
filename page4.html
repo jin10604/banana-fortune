@@ -2,71 +2,65 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banana Fortune - 결과</title>
+  <title>Banana Fortune - Page4</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page4">
 
-  <div class="phone-frame">
-
-    <div class="poop-wrap">
+  <div class="page4-stage">
+    <div id="fortuneBox">
       <div id="fortuneText"></div>
     </div>
-
-    <div class="monkey-wrap">
-      <img src="image/monkey.png" alt="monkey">
-    </div>
-
   </div>
 
-<script>
-const positive = [
- "기다리던 기회가 찾아옵니다.",
- "좋은 소식이 곧 들려옵니다.",
- "노력한 만큼 보상을 받습니다.",
- "사람들에게 인정받게 됩니다.",
- "금전운이 상승합니다.",
- "뜻밖의 행운이 따릅니다.",
- "주변의 응원을 받습니다.",
- "행복한 만남이 생깁니다.",
- "원하던 일이 성사됩니다.",
- "기분 좋은 변화가 시작됩니다.",
- "오래 고민한 문제가 해결됩니다.",
- "새로운 기회가 열립니다."
-];
+  <script>
+    const negative = [
+      "오늘은 작은 실수로 일이 꼬일 수 있습니다.",
+      "기대했던 소식이 미뤄질 수 있습니다.",
+      "괜히 말이 많아져 오해를 살 수 있습니다.",
+      "계획했던 일정이 변경될 가능성이 큽니다.",
+      "집중력이 떨어져 실수를 반복할 수 있습니다.",
+      "주변 사람과의 갈등이 생길 수 있습니다.",
+      "몸이 쉽게 지칠 수 있는 하루입니다.",
+      "사소한 일에 스트레스를 받을 수 있습니다.",
+      "금전적으로 조심해야 하는 날입니다.",
+      "생각보다 일이 더 오래 걸릴 수 있습니다.",
+      "의욕이 떨어질 수 있는 하루입니다.",
+      "예상치 못한 변수에 흔들릴 수 있습니다."
+    ];
 
-const negative = [
- "작은 실수가 큰 후회로 이어질 수 있습니다.",
- "지나친 기대는 실망을 부를 수 있습니다.",
- "불필요한 오해가 생길 수 있습니다.",
- "지출이 늘어나 주의가 필요합니다.",
- "주변 사람과의 갈등에 유의하세요.",
- "건강 관리에 신경 써야 합니다.",
- "계획이 지연될 수 있습니다.",
- "조급함이 문제를 키울 수 있습니다.",
- "약속 변경에 대비하세요.",
- "집중력이 떨어질 수 있습니다.",
- "예상치 못한 변수가 생깁니다.",
- "기분이 쉽게 가라앉을 수 있습니다."
-];
+    const positive = [
+      "작은 행운이 연달아 찾아옵니다.",
+      "기다리던 소식을 듣게 됩니다.",
+      "오늘 한 선택이 좋은 결과로 이어집니다.",
+      "주변 사람의 도움을 받을 수 있습니다.",
+      "기분 좋은 우연이 생길 하루입니다.",
+      "노력한 만큼 보상이 따릅니다.",
+      "금전적으로 기회가 생길 수 있습니다.",
+      "기분 좋은 만남이 기다리고 있습니다.",
+      "하고 싶은 일이 술술 풀립니다.",
+      "생각하지 못한 기쁨이 찾아옵니다.",
+      "오늘은 도전하기 좋은 날입니다.",
+      "오랜 고민이 해결될 실마리가 보입니다."
+    ];
 
-function pick(arr){
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+    const pick1 = Math.random() < 0.5 ? "neg" : "pos";
+    const pick2 = Math.random() < 0.5 ? "neg" : "pos";
 
-const a = pick(positive.concat(negative));
-const b = pick(positive.concat(negative));
+    function getRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
 
-let connector = "";
-if((positive.includes(a) && positive.includes(b)) || (negative.includes(a) && negative.includes(b))){
-  connector = " 또한 ";
-}else{
-  connector = " 그러나 ";
-}
+    const fortune1 = pick1 === "neg" ? getRandom(negative) : getRandom(positive);
+    const fortune2 = pick2 === "neg" ? getRandom(negative) : getRandom(positive);
 
-document.getElementById("fortuneText").innerText = a + connector + b;
-</script>
+    let connector = "그리고";
+    if (pick1 !== pick2) connector = "그러나";
+    if (pick1 === "neg" && pick2 === "neg") connector = "또한";
+
+    document.getElementById("fortuneText").innerText =
+      fortune1 + "\n\n" + connector + "\n\n" + fortune2;
+  </script>
 
 </body>
 </html>
