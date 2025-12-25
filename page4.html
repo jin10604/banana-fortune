@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Banana Fortune_page4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="stage page4">
+    <img class="bg" src="image/page4.png" alt="background">
+
+    <div id="resultBox">
+      <p id="resultText"></p>
+    </div>
+  </div>
+</div>
+
+<audio id="clickSound" src="sound/click.mp3" preload="auto"></audio>
+<audio id="bgm" src="sound/bgm.mp3" loop preload="auto"></audio>
+
+<script>
+  const clickSound = document.getElementById("clickSound");
+  const bgm = document.getElementById("bgm");
+
+  clickSound.volume = 1.0;
+  bgm.volume = 0.3;
+
+  if (localStorage.getItem("bgmPlaying") === "true") {
+    bgm.play();
+  }
+
+  const positive = [
+    "기대하지 않았던 기회가 찾아옵니다.",
+    "작은 선택이 큰 성과로 이어집니다.",
+    "오늘의 시도가 내일의 성과가 됩니다.",
+    "행운이 당신 편에 서 있습니다.",
+    "마음먹은 일에 좋은 흐름이 따릅니다.",
+    "당신의 노력이 인정받게 됩니다.",
+    "뜻밖의 만남이 힘이 되어 줍니다.",
+    "자신을 믿으면 결과가 달라집니다.",
+    "좋은 소식이 곧 들려옵니다."
+  ];
+
+  const negative = [
+    "조급함이 실수를 부를 수 있습니다.",
+    "오늘은 신중함이 필요합니다.",
+    "예상치 못한 변수에 주의하세요.",
+    "말 한마디가 오해를 만들 수 있습니다.",
+    "작은 문제를 가볍게 넘기지 마세요.",
+    "지금은 쉬어 가는 선택도 필요합니다.",
+    "주변의 조언을 무시하지 마세요.",
+    "피로가 쌓이면 판단력이 흐려집니다.",
+    "서두르면 기회를 놓칠 수 있습니다."
+  ];
+
+  function pick(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
+  const a = Math.random() < 0.5 ? "pos" : "neg";
+  const b = Math.random() < 0.5 ? "pos" : "neg";
+
+  const first = a === "pos" ? pick(positive) : pick(negative);
+  const second = b === "pos" ? pick(positive) : pick(negative);
+
+  const connector = a === b ? " 또한 " : " 그러나 ";
+
+  document.getElementById("resultText").innerText = first + connector + second;
+</script>
+
+</body>
+</html>
