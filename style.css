@@ -77,5 +77,7 @@ html, body {
 
 .stage.page3 .bananaPick.picked {
   transform: translate(-50%, -50%) scale(0.75);
+  opacity: 0.5;              /* 연해지게 */
+  filter: grayscale(40%);   /* 살짝 색 빠지게 */
   pointer-events: none;
 }
