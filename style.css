@@ -130,3 +130,20 @@ html, body {
   color: #7b3a0a;
   white-space: pre-line;
 }
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #ffffff !important;
+    filter: none !important;
+  }
+
+  img, .bg {
+    filter: none !important;
+    -webkit-filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+
+  * {
+    color-scheme: light !important;
+  }
+}
