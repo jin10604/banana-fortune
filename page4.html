@@ -3,101 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
 <title>Banana Fortune_page4</title>
 
-<link rel="preload" href="font/galmuri9.woff2" as="font" type="font/woff2" crossorigin>
-
-<style>
-@font-face {
-  font-family: 'Galmuri9';
-  src:
-    url('font/galmuri9.woff2') format('woff2'),
-    url('font/galmuri9.woff') format('woff');
-  font-display: swap;
-}
-
-html, body {
-  margin:0;
-  padding:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  background:#fff;
-  font-family:'Galmuri9', sans-serif;
-  -webkit-text-size-adjust:none;
-}
-
-.stage.page4 {
-  position:relative;
-  width:100%;
-  height:100%;
-  background:none!important;
-  filter:none!important;
-  transform:none!important;
-  will-change:auto!important;
-}
-
-.bg {
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  filter:none!important;
-  transform:none!important;
-  will-change:auto!important;
-}
-
-#fortuneBox {
-  position:absolute;
-  top:43%;
-  left:50%;
-  width:58%;
-  transform:translateX(-50%);
-  text-align:center;
-  z-index:3;
-}
-
-#fortuneText {
-  font-family:'Galmuri9', sans-serif;
-  font-size:10pt;
-  line-height:18pt;
-  color:#7b3a0a;
-  white-space:pre-line;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="stage page4">
-  <img class="bg" src="image/page4.png">
-  <div id="fortuneBox"><p id="fortuneText"></p></div>
+<div class="wrapper">
+  <div class="stage page4">
+    <img class="bg" src="image/page4.png" alt="background">
+    <div id="fortuneBox">
+      <p id="fortuneText"></p>
+    </div>
+  </div>
 </div>
 
 <script>
 const positive = [
-  "오늘은 뜻밖의 행운이 찾아옵니다.","작은 선택이 큰 기쁨을 가져옵니다.","당신의 노력이 인정받게 됩니다.",
-  "기다리던 소식이 곧 들려옵니다.","좋은 인연을 만나게 됩니다.","우연이 필연이 되는 하루입니다.",
-  "당신을 응원하는 사람이 있습니다.","마음먹은 일이 술술 풀립니다.","따뜻한 말 한마디가 큰 힘이 됩니다.",
-  "오늘의 웃음이 오래 기억됩니다.","기대하지 않았던 기회가 옵니다.","행복은 이미 당신 곁에 있습니다."
+  "오늘은 뜻밖의 행운이 찾아옵니다.",
+  "작은 선택이 큰 기쁨을 가져옵니다.",
+  "당신의 노력이 인정받게 됩니다.",
+  "기다리던 소식이 곧 들려옵니다.",
+  "좋은 인연을 만나게 됩니다.",
+  "우연이 필연이 되는 하루입니다.",
+  "당신을 응원하는 사람이 있습니다.",
+  "마음먹은 일이 술술 풀립니다.",
+  "따뜻한 말 한마디가 큰 힘이 됩니다.",
+  "오늘의 웃음이 오래 기억됩니다.",
+  "기대하지 않았던 기회가 옵니다.",
+  "행복은 이미 당신 곁에 있습니다."
 ];
+
 const negative = [
-  "조급함이 일을 망칠 수 있습니다.","말 한마디로 오해가 생길 수 있습니다.","오늘은 혼자만의 시간이 필요합니다.",
-  "계획이 어긋날 수 있으니 여유를 가지세요.","작은 실수가 크게 느껴질 수 있습니다.","감정 조절이 중요한 하루입니다.",
-  "주변 상황을 한 번 더 살펴보세요.","지나친 기대는 실망으로 돌아옵니다.","피로가 쌓일 수 있습니다.",
-  "불필요한 말은 삼키는 게 좋습니다.","오늘은 운보다 신중함이 필요합니다.","마음이 복잡해질 수 있습니다."
+  "조급함이 일을 망칠 수 있습니다.",
+  "말 한마디로 오해가 생길 수 있습니다.",
+  "오늘은 혼자만의 시간이 필요합니다.",
+  "계획이 어긋날 수 있으니 여유를 가지세요.",
+  "작은 실수가 크게 느껴질 수 있습니다.",
+  "감정 조절이 중요한 하루입니다.",
+  "주변 상황을 한 번 더 살펴보세요.",
+  "지나친 기대는 실망으로 돌아옵니다.",
+  "피로가 쌓일 수 있습니다.",
+  "불필요한 말은 삼키는 게 좋습니다.",
+  "오늘은 운보다 신중함이 필요합니다.",
+  "마음이 복잡해질 수 있습니다."
 ];
 
-function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+function pick(arr){
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-const a = Math.random()<0.5?'pos':'neg';
-const b = Math.random()<0.5?'pos':'neg';
-const link = (a===b)?"또한":"그러나";
-const t1 = (a==='pos')?pick(positive):pick(negative);
-let t2; do{ t2=(b==='pos')?pick(positive):pick(negative);}while(t1===t2);
+const a = Math.random() < 0.5 ? 'pos' : 'neg';
+const b = Math.random() < 0.5 ? 'pos' : 'neg';
 
-const el = document.getElementById("fortuneText");
-el.innerText = `${t1}\n${link},\n${t2}`;
+const linkWord = (a === b) ? "또한" : "그러나";
+
+const t1 = (a === 'pos') ? pick(positive) : pick(negative);
+let t2;
+do {
+  t2 = (b === 'pos') ? pick(positive) : pick(negative);
+} while (t1 === t2);
+
+document.getElementById("fortuneText").innerText =
+`${t1}
+${linkWord},
+${t2}`;
 </script>
 
 </body>
