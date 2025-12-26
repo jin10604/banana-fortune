@@ -33,6 +33,10 @@
   const bananas = document.querySelectorAll(".bananaPick");
   const clickSound = document.getElementById("clickSound");
   const bgm = document.getElementById("bgm");
+  document.body.addEventListener("touchstart", () => {
+  bgm.play().catch(()=>{});
+}, { once:true });
+
 
   bgm.volume = 0.3;
   bgm.play();
