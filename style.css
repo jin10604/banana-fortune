@@ -1,15 +1,4 @@
-/**/
 
-@font-face {
-  font-family: 'Galmuri9';
-  src:
-    url('font/galmuri9.woff2') format('woff2'),
-    url('font/galmuri9.woff') format('woff');
-  font-display: swap;
-}
-
-
-/**/
 html, body {
   margin: 0;
   padding: 0;
@@ -17,8 +6,9 @@ html, body {
   height: 100%;
   overflow: hidden;
   background-color: #ffffff;
-  font-family: 'Galmuri9', sans-serif;
-  -webkit-text-size-adjust: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+             "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+
   font-smooth: always;
 }
 
@@ -134,7 +124,7 @@ html, body {
 
 /* 운세 텍스트 */
 #fortuneText {
-  font-family: 'Galmuri9', sans-serif;
+  font-family: inherit;
   font-size: 10pt;
   line-height: 18pt;
   color: #7b3a0a;
