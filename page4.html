@@ -18,8 +18,16 @@
     </div>
   </div>
 </div>
+  
+<audio id="bgm" src="sound/bgm.mp3" loop preload="auto"></audio>
 
 <script>
+  const bgm = document.getElementById("bgm");
+
+document.body.addEventListener("touchstart", () => {
+  bgm.play().catch(()=>{});
+}, { once:true });
+
 const positive = [
   "오늘은 뜻밖의 행운이 찾아옵니다.",
   "작은 선택이 큰 기쁨을 가져옵니다.",
