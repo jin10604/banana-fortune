@@ -54,7 +54,7 @@ html, body {
 #banana {
   position: absolute;
   top: 18%;
-  left: 42%;
+  left: 40%;
   width: 78%;
   transform: translate(-50%, -50%);
   z-index: 1;
