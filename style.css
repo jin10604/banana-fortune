@@ -19,6 +19,7 @@ html, body {
   background-color: #ffffff;
   font-family: 'Galmuri9', sans-serif;
   -webkit-text-size-adjust: none;
+  font-smooth: always;
 }
 
 
@@ -103,28 +104,30 @@ html, body {
   pointer-events: none;
 }
 
-/* ===== PAGE 4 ===== */
+/* ===== PAGE 4 MOBILE FIX ===== */
 
 .stage.page4 {
-  position: relative;
-  height: 100%;
-  background-color: #ffffff;   /* 배경 어두워지는 문제 해결 */
+  background: none !important;
+  filter: none !important;
+  transform: none !important;
+  will-change: auto !important;
 }
 
-#fortuneBox {
-  position: absolute;
-  top: 43%;
-  left: 50%;
-  width: 58%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 3;
+.stage.page4 .bg {
+  filter: none !important;
+  transform: none !important;
+  will-change: auto !important;
 }
 
 #fortuneText {
+  font-family: 'Galmuri9', sans-serif !important;
+  font-size: 10pt !important;
+  line-height: 18pt !important;
+  color: #7b3a0a !important;
+  visibility: hidden;
+}
+
+html, body {
   font-family: 'Galmuri9', sans-serif;
-  font-size: clamp(18px, 4vw, 26px);
-  line-height: 18pt;
-  color: #381b05;
-  white-space: pre-line;
+  -webkit-text-size-adjust: none;
 }
