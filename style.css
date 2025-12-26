@@ -114,7 +114,7 @@ html, body {
 /* 운세 박스 */
 #fortuneBox {
   position: absolute;
-  top: 43%;
+  top: 25%;
   left: 50%;
   width: 58%;
   transform: translateX(-50%);
