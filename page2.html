@@ -27,6 +27,10 @@
     const bgm = document.getElementById("bgm");
     const clickSound = document.getElementById("clickSound");
     const nextArrow = document.getElementById("nextArrow");
+    document.body.addEventListener("touchstart", () => {
+  bgm.play().catch(()=>{});
+}, { once:true });
+
 
     clickSound.volume = 1.0;
     bgm.volume = 0.3;
