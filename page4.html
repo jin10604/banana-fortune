@@ -17,8 +17,10 @@
 }
 
 html, body {
-  margin:0; padding:0;
-  width:100%; height:100%;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
   overflow:hidden;
   background:#fff;
   font-family:'Galmuri9', sans-serif;
@@ -36,9 +38,11 @@ html, body {
 }
 
 .bg {
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
-  object-fit:contain;
+  object-fit:cover;
   filter:none!important;
   transform:none!important;
   will-change:auto!important;
@@ -60,7 +64,6 @@ html, body {
   line-height:18pt;
   color:#7b3a0a;
   white-space:pre-line;
-  visibility:hidden;
 }
 </style>
 </head>
@@ -93,11 +96,8 @@ const link = (a===b)?"또한":"그러나";
 const t1 = (a==='pos')?pick(positive):pick(negative);
 let t2; do{ t2=(b==='pos')?pick(positive):pick(negative);}while(t1===t2);
 
-document.fonts.load("10pt Galmuri9").then(()=>{
-  const el=document.getElementById("fortuneText");
-  el.innerText = `${t1}\n${link},\n${t2}`;
-  requestAnimationFrame(()=> el.style.visibility="visible");
-});
+const el = document.getElementById("fortuneText");
+el.innerText = `${t1}\n${link},\n${t2}`;
 </script>
 
 </body>
