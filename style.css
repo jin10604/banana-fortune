@@ -2,11 +2,12 @@
 
 @font-face {
   font-family: 'Galmuri9';
-  src: url('font/galmuri9.woff2') format('woff2'),
-       url('font/galmuri9.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+  src:
+    url('font/galmuri9.woff2') format('woff2'),
+    url('font/galmuri9.woff') format('woff');
+  font-display: swap;
 }
+
 
 /**/
 html, body {
@@ -16,7 +17,10 @@ html, body {
   height: 100%;
   overflow: hidden;
   background-color: #ffffff;
+  font-family: 'Galmuri9', sans-serif;
+  -webkit-text-size-adjust: none;
 }
+
 
 /* 화면 중앙 정렬용 래퍼 */
 .wrapper {
